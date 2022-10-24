@@ -10,6 +10,7 @@
       <th>Rating</th>
       <th>Release Date</th>
       <th>More Info</th>
+      <th>Director</th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,9 @@
         </td>
         <td>
           <%= movie.release_date %>
+        </td>
+        <td>
+          <%= movie.director %>
         </td>
         <td>
           <%= link_to "More about #{movie.title}", movie_path(movie) %>

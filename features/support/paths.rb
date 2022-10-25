@@ -28,6 +28,9 @@ module NavigationHelpers
     when /^the Similar Movies page for "(.*)"$/
       search_directors_path($1)
 
+    when /^the index page/
+      redirect_to('/movies')
+      
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

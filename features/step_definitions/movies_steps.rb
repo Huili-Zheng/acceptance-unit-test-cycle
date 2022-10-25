@@ -1,4 +1,3 @@
-
 Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
     Movie.create movie
@@ -22,4 +21,14 @@ Then /I should see all the movies/ do
   Movie.all.each do |movie|
     step %{I should see "#{movie.title}"}
   end
+end
+
+Then /^the director of "(.*)" should be "(.*)"/ do |m1, d1|
+  movie = Movie.find {|x| x.title == m1}
+  movie_director = movie.director
+  expect(movie_director).to eq(d1)
+end
+
+Then /^the Similar Movies page for "(.*)"/ do |m1|
+  expect(page).to have_content(m1)
 end

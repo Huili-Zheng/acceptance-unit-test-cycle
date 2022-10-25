@@ -32,3 +32,14 @@ Scenario: can't find similar movies if we don't know director (sad path)
   When  I follow "Find Movies With Same Director"
   Then  I should be on the home page
   And   I should see "'Alien' has no director info"
+
+Scenario: add a mew movie
+  Given I am on the index page
+  When  I follow "Add new movie"
+  And  I fill in "Title" with "Star Wars 2"
+  And  I fill in "Rating" with "PG"
+  And  I fill in "Director" with "Ridley Scott"
+  And  I fill in "Release_date" with "2002-05-25"
+  And  I press "Save Changes"
+  Then I should be on the index page
+  And I should see "Star Wars 2"
